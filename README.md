@@ -23,22 +23,22 @@ constraints on the mass of such a perturbing object can be made (C. V. Morley).
 #Installation instructions
 
 Either:
->> pip install kplr 
+> pip install kplr 
 
 Or:
->>git clone https://github.com/dfm/kplr.git
->>cd kplr
->>python setup.py install 
+>git clone https://github.com/dfm/kplr.git
+>cd kplr
+>python setup.py install 
 
 And then within Julia:
 
-Pkg.add("PyCall")
+> Pkg.add("PyCall")
 
-Pkg.update()
+> Pkg.update()
 
 And you are all set!
 
-
+More documentation here: http://dan.iel.fm/kplr/ 
 
 ##Installing `kplr`
 Go to Github, and search for kplr in Julia
