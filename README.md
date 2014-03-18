@@ -13,3 +13,13 @@ the presence of a perturbing body in the system (Holman & Murray, 2005). For ins
 another planet in the system or a large moon around the planet could be detected. Upper
 constraints on the mass of such a perturbing object can be made (C. V. Morley).
 
+##A few assumptions
+
+
+
+
+#Installation instructions
+
+
+##Installing `kplr`
+Go to Github, and search for kplr in Julia
