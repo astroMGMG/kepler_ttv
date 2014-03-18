@@ -2,7 +2,9 @@ Searching for TTVs in the Kepler data. Astro 585 semester project.
 
 
 #Reading Material
+The /paper directory has some useful papers.
 
+A short description of them follows
 
 
 #What are Transit Timing Variations?
@@ -19,6 +21,23 @@ constraints on the mass of such a perturbing object can be made (C. V. Morley).
 
 
 #Installation instructions
+
+Either:
+>> pip install kplr 
+
+Or:
+>>git clone https://github.com/dfm/kplr.git
+>>cd kplr
+>>python setup.py install 
+
+And then within Julia:
+
+Pkg.add("PyCall")
+
+Pkg.update()
+
+And you are all set!
+
 
 
 ##Installing `kplr`
