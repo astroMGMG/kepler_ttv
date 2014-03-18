@@ -42,3 +42,17 @@ More documentation here: http://dan.iel.fm/kplr/
 
 ##Installing `kplr`
 Go to Github, and search for kplr in Julia
+
+
+#Using the `kplr` package
+
+##Install `PyFITS`
+You will need PyFITS to read the FITS data. 
+Issue the following commands:
+> git clone https://github.com/spacetelescope/PyFITS.git 
+> cd PyFITS
+> python setup.py install
+
+Then within Julia do:
+> using PyCall
+> @pyimport pyfits
