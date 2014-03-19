@@ -13,6 +13,24 @@ Or:
 
 >python setup.py install 
 
+**And then within Julia:**
+
+> Pkg.add("PyCall")
+
+> Pkg.update()
+
+You will also need to install <code>PyFits</code>: _Issue the following commands:_
+
+> git clone https://github.com/spacetelescope/PyFITS.git 
+
+> cd PyFITS
+
+> python setup.py install
+
+And you are all set!
+
+More documentation here: http://dan.iel.fm/kplr/ 
+
 ###Using the `kplr` package
 In Julia, issue the following commands:
 
