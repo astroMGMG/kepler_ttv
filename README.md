@@ -1,11 +1,9 @@
 Searching for TTVs in the Kepler data. Astro 585 semester project.
 
-
 #Reading Material
 The /paper directory has some useful papers.
 
 A short description of them follows
-
 
 #What are Transit Timing Variations?
 Another quantity that can be measured is the midtime of the transit. By comparing
@@ -15,44 +13,3 @@ the presence of a perturbing body in the system (Holman & Murray, 2005). For ins
 another planet in the system or a large moon around the planet could be detected. Upper
 constraints on the mass of such a perturbing object can be made (C. V. Morley).
 
-##A few assumptions
-
-
-
-
-#Installation instructions
-
-Either:
-> pip install kplr 
-
-Or:
->git clone https://github.com/dfm/kplr.git
->cd kplr
->python setup.py install 
-
-And then within Julia:
-
-> Pkg.add("PyCall")
-
-> Pkg.update()
-
-And you are all set!
-
-More documentation here: http://dan.iel.fm/kplr/ 
-
-##Installing `kplr`
-Go to Github, and search for kplr in Julia
-
-
-#Using the `kplr` package
-
-##Install `PyFITS`
-You will need PyFITS to read the FITS data. 
-Issue the following commands:
-> git clone https://github.com/spacetelescope/PyFITS.git 
-> cd PyFITS
-> python setup.py install
-
-Then within Julia do:
-> using PyCall
-> @pyimport pyfits
