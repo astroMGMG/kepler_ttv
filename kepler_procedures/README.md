@@ -1,40 +1,39 @@
+#The `kplr` package
 The kplr package will provide the greatest functionality with the most ease.
+This is a python package but can be used within Julia via the package <code>pycall</code>.
 
-This is a python package but can be used within Julia via the package "PyCall".
+###Installation instructions
+Either:
+> pip install kplr 
 
-Example:
-	using PyCall
-	@pyimport kplr
+Or:
+>git clone https://github.com/dfm/kplr.git
+>cd kplr
+>python setup.py install 
 
-tried doing:
-	@pyimport kplr
-	client = kplr.API()
-	koi=client.koi(952.01)
-
-	ERROR: client not defined
-
-however the following works in python:
-	import kplr
-	client = kplr.API()
-	koi=client.koi(952.01)
-
-
-USEFUL NOTES FROM PyCall:
-=========================
-The biggest diffence from Python is that object attributes/members are accessed with o[:attribute] rather than o.attribute, and you use get(o, key) rather than o[key].
-(This is because Julia does not permit overloading the . operator yet.)
-See also the section on PyObject below, as well as the pywrap function to create anonymous modules that simulate . access (this is what @pyimport does).
-For example, using Biopython we can do:
-
-@pyimport Bio.Seq as s
-@pyimport Bio.Alphabet as a
-my_dna = s.Seq("AGTACACTGGT", a.generic_dna)
-my_dna[:find]("ACT")
-whereas in Python the last step would have been my_dna.find("ACT")
-
-
-JUST TESTED THIS:
+###Using the `kplr` package
+In Julia, issue the following commands:
+julia> using PyCall
+julia> @pyimport pyfits
+julia> @pyimport kplr
+julia> client = kplr.API()
 julia> koi=client[:koi](952.01)
-PyObject <KOI("K00952.01")>
 
-Therefore the kplr package will work within julia!
+###Notes for using PyCall in Julia
+The biggest diffence from Python is that object attributes/members are accessed with omyObject[:attribute] rather than myObject.attribute, and you use get(myObject, key) rather than myObject[key].
+(This is because Julia does not permit overloading the . operator yet.)
+See also the section on <code>PyObject</code> below, as well as the pywrap function to create anonymous modules that simulate . access (this is what <code>@pyimport</code> does).
+
+#####Small example
+For example, using <code>Biopython</code> we can do:
+
+ >@pyimport Bio.Seq as s
+
+ >@pyimport Bio.Alphabet as a
+
+ >my_dna = s.Seq("AGTACACTGGT", a.generic_dna)
+
+ >my_dna[:find]("ACT")
+
+ >whereas in Python the last step would have been my_dna.find("ACT")
+
