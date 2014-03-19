@@ -8,16 +8,23 @@ Either:
 
 Or:
 >git clone https://github.com/dfm/kplr.git
+
 >cd kplr
+
 >python setup.py install 
 
 ###Using the `kplr` package
 In Julia, issue the following commands:
-julia> using PyCall
-julia> @pyimport pyfits
-julia> @pyimport kplr
-julia> client = kplr.API()
-julia> koi=client[:koi](952.01)
+
+>julia> using PyCall
+ 
+>julia> @pyimport pyfits
+ 
+>julia> @pyimport kplr
+ 
+>julia> client = kplr.API()
+ 
+>julia> koi=client[:koi](952.01)
 
 ###Notes for using PyCall in Julia
 The biggest diffence from Python is that object attributes/members are accessed with omyObject[:attribute] rather than myObject.attribute, and you use get(myObject, key) rather than myObject[key].
@@ -36,4 +43,3 @@ For example, using <code>Biopython</code> we can do:
  >my_dna[:find]("ACT")
 
  >whereas in Python the last step would have been my_dna.find("ACT")
-
