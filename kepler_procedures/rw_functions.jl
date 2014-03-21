@@ -6,6 +6,11 @@ end
 
 function write_lightcurve_ascii(x::Array, filename::String)
     #A function that writes the array x to a file **filename** in a CSV-file format
+    #In our case, x is a multidimensional array;
+    #- x[1]:
+    #- x[2]:
+    #- x[3]:
+    #- x[4]:
     writecsv(filename, x)
 end
 
