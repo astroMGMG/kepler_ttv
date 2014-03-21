@@ -63,23 +63,16 @@ For example, using <code>Biopython</code> we can do:
  >whereas in Python the last step would have been my_dna.find("ACT")
 
 ###Function List
-    build_lightcurve.jl
-Builds a lightcurve for all the availible quarters.
+<code>build_lightcurve.jl</code>: Builds a lightcurve for all the availible quarters.
 
-    client_init.jl
-Loads PyCall, kplr and initializes the MAST API client.
+<code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
 
-    get_good_indices.jl
-A function that returns the non-NaN indices of an input array.
+<code>get_good_indices.jl</code>: A function that returns the non-NaN indices of an input array.
 
-    GettingReading lightcurves.ipynb
-An interactive notebook where the 
+<code>GettingReading lightcurves.ipynb</code>: An interactive notebook where the 
 
-    koi_get_data.jl
-A function that receives a **koi** and returns data for a given koi object.
+<code>koi_get_data.jl</code>: A function that receives a **koi** and returns data for a given koi object.
 
-    README.md
-This **README.md** file.
+<code>README.md</code>: This **README.md** file.
 
-    rw_functions.jl
-A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
+<code>rw_functions.jl</code>: A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
