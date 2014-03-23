@@ -62,7 +62,24 @@ For example, using <code>Biopython</code> we can do:
 
  >whereas in Python the last step would have been my_dna.find("ACT")
 
-###Function List
+
+#The `Optim` package
+
+To install:
+
+> Pkg.add("Optim")
+
+> Pkg.update()
+
+Then just:
+
+>using Optim
+
+See the `optim_fittin.ipynb` notebook for an example
+
+
+
+#Function List
 <code>build_lightcurve.jl</code>: Builds a lightcurve for all the availible quarters.
 
 <code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
@@ -76,3 +93,7 @@ For example, using <code>Biopython</code> we can do:
 <code>README.md</code>: This **README.md** file.
 
 <code>rw_functions.jl</code>: A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
+
+<code>get_start_indices.jl</code>: Return a set of evenly spaced indices that break up an array into segments of length sqrt(array)
+
+<code>segment_detrend!.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
