@@ -1,6 +1,7 @@
 # First we will need to use the different packages
 # - Note: these statements can NOT be within the functions
 using PyCall;
+using Optim;
 
 function client_init()
     # A function that initializes the kplr client-object, and returns it
@@ -37,7 +38,9 @@ function get_good_lightcurve_quarters(client, koi_name)
     #
 
     time,pdcsap_flux,pdcsap_flux_err = [],[],[];
+    println("Initializing koi...")
     koi = client[:koi](koi_name)
+    println("Getting lightcurves...")
     lcs = koi[:get_light_curves](short_cadence=false)
 
     #iterate over each lightcurve
@@ -89,6 +92,7 @@ function get_good_lightcurve_quarters(client, koi_name)
         time=[time,time_temp];
         pdcsap_flux=[pdcsap_flux,pdcsap_flux_temp];
         pdcsap_flux_err = [pdcsap_flux_err,pdcsap_flux_err_temp];
+        println("Done")
 
         return(time, pdcsap_flux, pdcsap_flux_err)
     end
