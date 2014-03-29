@@ -25,5 +25,5 @@ function segment_detrend!(seg_inds,time,flux)
     ypts = flux[seg_indices];
 
     beta, r, J = curve_fit(cubicmodel, xpts, ypts, [1.0, 0.0, 0.0, 0.0]);
-    flux[seg_ind]=flux[seg_ind]-cubicmodel(xpts,beta)+1;
+    flux[seg_indices]=flux[seg_indices]-cubicmodel(xpts,beta)+1;
 end
