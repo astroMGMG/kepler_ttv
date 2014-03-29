@@ -1,3 +1,9 @@
+function read_ascii(inputname::String)
+    #A function that reads the file "inputname" which assumes that the data is arranged in a CSV format
+    @assert isfile(inputname)
+    return readcsv(inputname)
+end
+
 function read_lightcurve_ascii(inputname::String)
     #A function that reads the file "inputname" which assumes that the data is arranged in a CSV format
     @assert isfile(inputname)
