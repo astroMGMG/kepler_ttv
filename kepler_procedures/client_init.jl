@@ -1,6 +1,7 @@
 # First we will need to use the different packages
 # - Note: these statements can NOT be within the functions
 using PyCall;
+using PyPlot;
 using Optim;
 
 function client_init()
@@ -44,7 +45,10 @@ function get_good_lightcurve_quarters(client, koi_name)
     lcs = koi[:get_light_curves](short_cadence=false)
 
     #iterate over each lightcurve
+    iter = 0
     for lc in lcs
+        println(iter)
+        iter = iter+1;
         #open the lightcurve file for reading
         hdu = lc[:open]();
         
@@ -92,10 +96,10 @@ function get_good_lightcurve_quarters(client, koi_name)
         time=[time,time_temp];
         pdcsap_flux=[pdcsap_flux,pdcsap_flux_temp];
         pdcsap_flux_err = [pdcsap_flux_err,pdcsap_flux_err_temp];
-        println("Done")
-
-        return(time, pdcsap_flux, pdcsap_flux_err)
     end
 
+    println("Done")
+
+    return (time, pdcsap_flux, pdcsap_flux_err)
 end
 
