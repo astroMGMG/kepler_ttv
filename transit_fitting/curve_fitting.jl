@@ -9,10 +9,11 @@ end
 
 #Use to find the derivative
 
-function lagrange_deriv(time::Array,flux::Array)
+@everywhere function lagrange_deriv(time::Array,flux::Array)
     @assert (length(time)==length(flux))
     dy=zeros(length(time))
-    for i in 2:(length(flux)-1)
+
+  dy =  @parallel (+) for i in 2:(length(flux)-1)
         y0 =flux[i-1]
         y1 =flux[i]
         y2 =flux[i+1]
@@ -101,9 +102,19 @@ function fit_curve(filename::String)
     stddev_df=std(df)
 
     marker=create_marker(df,stddev_f,stddev_df,flux)
-    width=mean(transit_width(marker))
-    period=mean(transit_period(marker))
-    depth=mean(transit_depth(marker,flux))
+
+    #width=mean(transit_width(marker))
+    #period=mean(transit_period(marker))
+    #depth=mean(transit_depth(marker,flux))
+
+
+    ref_width=@spawn(transit_width(marker)))
+    ref_period=@spawn(transit_period(marker))
+    ref_depth=@spawn(transit_depth(marker,flux))
+
+    width = mean(fetch(ref_width))
+    period = mean(fetch(ref_period))
+    depth = mean(fetch(ref_depth))
 
     model_curve=zeros(length(marker))
     for i in 1:length(marker)
