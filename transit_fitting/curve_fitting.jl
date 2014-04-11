@@ -108,7 +108,7 @@ function fit_curve(filename::String)
     #depth=mean(transit_depth(marker,flux))
 
 
-    ref_width=@spawn(transit_width(marker)))
+    ref_width=@spawn(transit_width(marker))
     ref_period=@spawn(transit_period(marker))
     ref_depth=@spawn(transit_depth(marker,flux))
 
