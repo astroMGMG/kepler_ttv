@@ -1,11 +1,21 @@
-
-#Reads file, creates time and flux vectors
-function read_file(name)
-    file=readcsv(name)
-    time=file[:,1]
-    flux=file[:,2]
+function read_file_binary(name)
+    #Read a binary file and output to the command line
+    file=open(name,"r")
+    a=Float64[]
+    i=0
+    while eof(file) == false
+        rfile=read(file,Float64)
+        push!(a,rfile)
+    end
+    
+    close(file)
+    l=length(a)
+    half=l/2
+    time=a[1:half]
+    flux=a[l/2+1:l]
     return time,flux
 end
+
 
 #Use to find the derivative
 
@@ -13,7 +23,8 @@ end
     @assert (length(time)==length(flux))
     dy=zeros(length(time))
 
-  dy =  @parallel (+) for i in 2:(length(flux)-1)
+#  dy =  @parallel 
+for i in 2:(length(flux)-1)
         y0 =flux[i-1]
         y1 =flux[i]
         y2 =flux[i+1]
@@ -48,17 +59,19 @@ end
 
 #Finds width of transit events. Output is a vector
 function transit_width(marker::Array)
-    width=[]
+    width=Float64[]
 
     l=length(marker)
     for i in 2:length(marker)
         if marker[i] + marker[i-1] == -0.5
-            width=[width,i]
+#            width=[width,i]
+	     push!(width,i)
         end
     end
-    width2=[]
+    width2=Float64[]
     for i in 2:2:length(width)-1
-        width2=[width2,width[i]-width[i-1]]
+#        width2=[width2,width[i]-width[i-1]]
+	 width2=push!(width2,width[i]-width[i-1])
     end
     return width2
 end
@@ -66,27 +79,30 @@ end
 
 #Finds period of transit events. Output is a vector
 function transit_period(marker::Array)
-        width=[]
+        width=Float64[]
 
         l=length(marker)
         for i in 2:length(marker)
             if marker[i] + marker[i-1] == -0.5
-                width=[width,i]
+#                width=[width,i]
+		 push!(width,i)
             end
         end
-        period=[]
+        period=Float64[]
         for i in 2:2:length(width)-1
-            period=[period,width[i+1]-width[i-1]]
+#            period=[period,width[i+1]-width[i-1]]
+	     push!(period,width[i+1]-width[i-1])
         end
     return period
 end
 
 #Finds depth of transit events. Output is a vector
 function transit_depth(marker::Array,flux::Array)
-    depth=[];
+    depth=Float64[];
     for i in 1:length(marker)
         if marker[i] == -1.0
-            depth=[depth,flux[i]]
+#            depth=[depth,flux[i]]
+	     push!(depth,flux[i])
         end
     end
     return depth
@@ -94,7 +110,7 @@ end
 
 #Wrapper function that finds transit parameters and plots fitted curve over data.
 function fit_curve(filename::String)
-    light_curve=read_file(filename)
+    light_curve=read_file_binary(filename)
     time=light_curve[1]
     flux=light_curve[2]
     df=lagrange_deriv(time,flux)
