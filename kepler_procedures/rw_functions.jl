@@ -13,10 +13,10 @@ end
 function write_lightcurve_ascii(x::Array, filename::String)
     #A function that writes the array x to a file **filename** in a CSV-file format
     #In our case, x is a multidimensional array;
-    #- x[1]:
-    #- x[2]:
-    #- x[3]:
-    #- x[4]:
+    #- x[:,1]: time
+    #- x[:,2]: detrended flux
+    #- x[:,3]: original, untrended flux
+    #- x[:,4]: flux_error - note this needs to be corrected for - not normalized!
     writecsv(filename, x)
 end
 
