@@ -57,7 +57,6 @@ function get_good_lightcurve_quarters(client, koi_name)
         hdu_bintable = hdu[2];
         hdu_bintable_data=hdu_bintable[:data];
         
-
         #------------------------------------------------------------
         #RETRIEVE DATA
         #------------------------------------------------------------
@@ -89,6 +88,9 @@ function get_good_lightcurve_quarters(client, koi_name)
         time=[time,time_temp];
         pdcsap_flux=[pdcsap_flux,pdcsap_flux_temp];
         pdcsap_flux_err = [pdcsap_flux_err,pdcsap_flux_err_temp];
+
+        @assert length(time) == length(pdcsap_flux)
+        @assert length(time) == length(pdcsap_flux_err)
     end
 
     println("All lightcurve quarters added")
