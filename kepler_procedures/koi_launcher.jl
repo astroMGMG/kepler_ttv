@@ -40,6 +40,9 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
         
         koi_list = read_ascii(koi_filename)
 
+        #Check if only one number in each row
+        @assert size(koi_list)[2] == 1
+
         my_kepler_client = client_init()
 
         for koi_num in koi_list

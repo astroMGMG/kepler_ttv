@@ -85,7 +85,7 @@ See the `optim_fittin.ipynb` notebook for an example
 
 <code>README.md</code>: This **README.md** file.
 
-<code>koi_list.csv</code>: This is the list of KOI objects, each in one row, the <code>koi_launcher.jl</code> will read this file to check for data for these objects.
+<code>koi_list.csv</code>: This is the list of KOI objects, each in one row, the <code>koi_launcher.jl</code> will read this file to check for data for these objects. It includes the following data columns; time, detrended_flux, untrended_flux, flux_error. Do not use the flux_error, it needs to be fixed.
 
 ##Julia files
 <code>rw_functions.jl</code>: A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
