@@ -1,3 +1,10 @@
+function write_file_binary(x::Array,name)
+    #Write an array of real numbers to a file. Format is binary
+    filen=open(name,"w")
+    write(filen,x)
+    close(filen)
+end
+
 function read_file_binary(name)
     #Read a binary file and output to the command line
     file=open(name,"r")
@@ -148,8 +155,15 @@ function fit_curve(filename::String)
   #  end
 
     #Plot for 3 transit events
-    plot(model_curve[1:iceil(3*period)])
+    #plot(model_curve[1:iceil(3*period)])
     plot(flux[1:iceil(3*period)])
     return model_curve
 end
 
+#Parallelize across processors
+@everywhere function multiple(n::Int)
+    for j in 1:n
+        file = @spawn fit_curve("test_huge_binary_$j.dat")
+        @spawn write_file_binary(fetch(file),"output_$j.dat")
+    end
+end
