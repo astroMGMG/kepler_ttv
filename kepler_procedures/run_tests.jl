@@ -5,8 +5,8 @@ include("koi_launcher.jl")
 #----------------------------------------------
 
 # First test - Big regression test
-# PURPOSE: Check if you can get data from kplr
+# PURPOSE: Check if you can get data from kplr, save data to file, and check RMS
 
-include("test1_ser.jl")
-
-serial_test1()
+include("test_rms_ser.jl")
+println("Beginning test 1: Getting data from kplr, saving it, and checking RMS")
+rms_test_ser()
