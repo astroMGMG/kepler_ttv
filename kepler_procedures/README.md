@@ -79,21 +79,17 @@ See the `optim_fittin.ipynb` notebook for an example
 
 
 
-#Function List
-<code>build_lightcurve.jl</code>: Builds a lightcurve for all the availible quarters.
-
-<code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
-
-<code>get_good_indices.jl</code>: A function that returns the non-NaN indices of an input array.
-
-<code>GettingReading lightcurves.ipynb</code>: An interactive notebook where the 
-
-<code>koi_get_data.jl</code>: A function that receives a **koi** and returns data for a given koi object.
+#Description of a few important files
+##General Description/Documentation
+<code>OPEN_ME.ipynb</code> Is a notebook that describes on how to get started, and run the tests.
 
 <code>README.md</code>: This **README.md** file.
 
+##Julia files
 <code>rw_functions.jl</code>: A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
 
-<code>get_start_indices.jl</code>: Return a set of evenly spaced indices that break up an array into segments of length sqrt(array)
+<code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
 
-<code>segment_detrend!.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
+<code>get_good_indices.jl</code>: Functions to work with, and remove NaNs in an array.
+
+<code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
