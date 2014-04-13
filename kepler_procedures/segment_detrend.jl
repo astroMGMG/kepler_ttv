@@ -13,9 +13,7 @@ function segment_detrend!(seg_inds,time,flux)
 #
 # OUTPUTS:
 #
-#
 # NOTES:
-#
 #
 # MODIFICATION HISTORY:
 #   March 29, 2014; by m-wells

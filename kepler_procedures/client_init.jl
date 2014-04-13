@@ -6,6 +6,7 @@ using Optim;
 
 function client_init()
     # A function that initializes the kplr client-object, and returns it
+    # NOTE: Must be connected to the internet!
     @pyimport pyfits;
     @pyimport kplr;
     client = kplr.API()
@@ -47,7 +48,7 @@ function get_good_lightcurve_quarters(client, koi_name)
     #iterate over each lightcurve
     iter = 0
     for lc in lcs
-        println(iter)
+        println("Adding lightcurve quarter ", iter, )
         iter = iter+1;
         #open the lightcurve file for reading
         hdu = lc[:open]();
@@ -81,14 +82,6 @@ function get_good_lightcurve_quarters(client, koi_name)
         pdcsap_flux_temp=pdcsap_flux_temp[idx_good];
         pdcsap_flux_err_temp=pdcsap_flux_err_temp[idx_good];
 
-        ##strip out bad data
-        #ind=get_good_indices(pdcsap_flux_temp);
-
-        ##
-        #time_temp=time_temp[ind];
-        #pdcsap_flux_temp=pdcsap_flux_temp[ind];
-        #pdcsap_flux_err_temp=pdcsap_flux_err_temp[ind];
-        
         ##normalize each quarter
         pdcsap_flux_temp=pdcsap_flux_temp/mean(pdcsap_flux_temp);
         
@@ -98,7 +91,7 @@ function get_good_lightcurve_quarters(client, koi_name)
         pdcsap_flux_err = [pdcsap_flux_err,pdcsap_flux_err_temp];
     end
 
-    println("Done")
+    println("All lightcurve quarters added")
 
     return (time, pdcsap_flux, pdcsap_flux_err)
 end
