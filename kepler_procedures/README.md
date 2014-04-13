@@ -85,6 +85,8 @@ See the `optim_fittin.ipynb` notebook for an example
 
 <code>README.md</code>: This **README.md** file.
 
+<code>koi_list.csv</code>: This is the list of KOI objects, each in one row, the <code>koi_launcher.jl</code> will read this file to check for data for these objects.
+
 ##Julia files
 <code>rw_functions.jl</code>: A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
 
@@ -93,3 +95,6 @@ See the `optim_fittin.ipynb` notebook for an example
 <code>get_good_indices.jl</code>: Functions to work with, and remove NaNs in an array.
 
 <code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
+
+<code>koi_launcher.jl</code>: The overall wrapper program that reads <code>koi_list.csv</code>, gets data using `kplr`, detrends the data, and saves the output data (time, detrended-flux, and original-flux, flux-error) in the <code>lightcurves/</code>/` detrends  Detrends a segment (applies a cubic fit to the data, and subtracts it.
+
