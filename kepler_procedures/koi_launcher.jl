@@ -77,10 +77,10 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
             #Testing
 
             if (plotFlag=="make_plot")
-		    plot(time,orig_flux,linewidth=0, marker=".",markersize=1)
-		    plot(time,flux,color="red",linewidth=0, marker=".", markersize=1)
-		    ylim(0.995,1.005)
-		    xlim(800,1200)
-		end
+               plot(time,orig_flux,linewidth=0, marker=".",markersize=1)
+               plot(time,flux,color="red",linewidth=0, marker=".", markersize=1)
+               ylim(0.995,1.005)
+               xlim(800,1200)
+	    end
         end
 end
