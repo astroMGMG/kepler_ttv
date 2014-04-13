@@ -56,8 +56,6 @@ function koi_launcher(koi_filename::String, testFlag="test_rw")
                 segment_detrend!(seg_ind,time,flux);
             end
 
-
-
             data_write = hcat(time, flux, orig_flux, fluxerr)
 
             #-----------------------------------------------------------
@@ -73,22 +71,7 @@ function koi_launcher(koi_filename::String, testFlag="test_rw")
                data_read = read_lightcurve_ascii(readpath)
                @test_approx_eq_eps(data_write,data_read,0.001)
                println(string("ASCII rw float vector passed test for KOI object ", koi_num))
-               #println("Length time ", length(time))
-               #println("Length flux before strip NaNs ", length(flux))
-               #println("Length origflux before strip NaNs ", length(orig_flux))
-               #println("Flux count NANS, ", get_num_nan(flux))
-               #println("OrigFlux count NANS, ", get_num_nan(orig_flux))
-               #flux_noNan = strip_nan(flux)
-               #orig_flux_noNan = strip_nan(orig_flux)
-               #println("Length flux after strip NaNs ", length(flux_noNan))
-               #println("Length origflux after strip NaNs ", length(orig_flux_noNan))
-               #dif_noNan = abs(orig_flux_noNan - flux_noNan)
-               #chi2 = sum(dif_noNan.*dif_noNan)
-               #orig_flux_std = std(orig_flux_noNan)
-               #flux_std      = std(flux_noNan)
-               #println("Original data std: ", orig_flux_std);
-               #println("Detrended data std: ", flux_std);
-               #println("Chi 2, ", chi2)
+
             end
             #-----------------------------------------------------------
             #Testing
