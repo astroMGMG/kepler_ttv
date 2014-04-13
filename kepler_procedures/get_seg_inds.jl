@@ -45,8 +45,6 @@ function get_seg_inds(array::Array)
     end
 
     #need to handle the last segment
-    # sind=start_indices[end];
-    # eind=len;
     seg_inds[num_segments,:]=[start_indices[end],len];
 
     return seg_inds
