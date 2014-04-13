@@ -26,6 +26,8 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
 	#
         #OPTIONAL INPUT:
         #       testFlag = "test_rw"
+        #       testFlag = "make_plot"
+        # Make these flags something else if you do not want this behaviour
         #
 	#OUTPUT PARAMETERS:
 	#
@@ -33,6 +35,7 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
 	#
 	#MODIFICATION HISTORY:
 	#       Coded by G. K. Stefansson - date 29 March, 2014
+	#       Coded by G. K. Stefansson - date 12 April, 2014
 	#
         
         koi_list = read_ascii(koi_filename)
@@ -80,7 +83,6 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
                plot(time,orig_flux,linewidth=0, marker=".",markersize=1)
                plot(time,flux,color="red",linewidth=0, marker=".", markersize=1)
                ylim(0.995,1.005)
-               xlim(800,1200)
 	    end
         end
 end
