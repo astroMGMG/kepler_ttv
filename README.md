@@ -3,7 +3,7 @@ Searching for TTVs in the Kepler data. Astro 585 semester project.
 #<code>kepler_procedures</code>
 Code by M. Wells, and G. K. Stefansson
 
-#<code>kepler_procedures</code>
+#<code>transit_fitting</code>
 Code by M. Rodruck, and G. Romine
 
 #What are Transit Timing Variations?
