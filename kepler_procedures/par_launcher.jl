@@ -19,7 +19,7 @@ function par_launcher(num_procs::Int64, plotFlag="make_plot")
 	@everywhere include("segment_detrend.jl")
 	@everywhere include("par_segment_detrend.jl");
 
-	@time time_flux = par_segment_detrend(dtime,dflux)
+	time_flux = par_segment_detrend(dtime,dflux)
 
 	time=time_flux[1][:];
 	flux=time_flux[2][:];
