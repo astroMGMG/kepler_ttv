@@ -1,17 +1,17 @@
-# Includes
-#-------------------------------------------------------
 using Base.Test
 using Optim;
-include("rw_functions.jl")
-include("get_good_lightcurve_quarters.jl")
-#For detrending:
-include("get_good_indices.jl")
-include("get_seg_inds.jl");
-include("segment_detrend.jl");
-include("detrend_models.jl");
-#-------------------------------------------------------
-
 function ser_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_plot")
+        # Includes
+        #-------------------------------------------------------
+        include("rw_functions.jl")
+        include("get_good_lightcurve_quarters.jl")
+        #For detrending:
+        include("get_good_indices.jl")
+        include("get_seg_inds.jl");
+        include("segment_detrend.jl");
+        include("detrend_models.jl");
+        #-------------------------------------------------------
+
 	#NAME:
 	#       koi_launcher(koi_filename::String)
 	#
