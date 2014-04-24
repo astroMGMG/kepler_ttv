@@ -3,9 +3,7 @@
 using Base.Test
 using Optim;
 include("rw_functions.jl")
-include("client_init.jl")
 include("get_good_lightcurve_quarters.jl")
-
 #For detrending:
 include("get_good_indices.jl")
 include("get_seg_inds.jl");
@@ -13,7 +11,7 @@ include("segment_detrend.jl");
 include("detrend_models.jl");
 #-------------------------------------------------------
 
-function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_plot", dataFlag="get_mast_data")
+function ser_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_plot")
 	#NAME:
 	#       koi_launcher(koi_filename::String)
 	#
@@ -41,32 +39,29 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
 	#       Coded by G. K. Stefansson - date 29 March, 2014
 	#       Coded by G. K. Stefansson - date 12 April, 2014
         
+        #-----------------------------------------------------------
+        # Reading
         koi_list = read_ascii(koi_filename)
+        #-----------------------------------------------------------
 
         #Check if only one number in each row
         @assert size(koi_list)[2] == 1
 
-        if (dataFlag=="get_mast_data")
-            my_kepler_client = client_init()
-        end
-
         for koi_num in koi_list
-            if (dataFlag=="get_mast_data")
-                println("Getting data for KOI object: ", koi_num);
-                time, flux, fluxerr = get_good_lightcurve_quarters(my_kepler_client, koi_num);
-            else
-                println("Reading data for KOI object: ", koi_num);
-                readstring = string("lightcurves_untrended/",koi_num,".csv");
-                println(readstring);
-                read_data = read_lightcurve_ascii(readstring);
-                time =read_data[:,1];
-                flux=read_data[:,2];
-                fluxerr=read_data[:,3];
-            end 
+            println("Reading data for KOI object: ", koi_num);
+            readstring = string("lightcurves_untrended/",koi_num,".csv");
+            println(readstring);
+            read_data = read_lightcurve_ascii(readstring);
+            time =read_data[:,1];
+            flux=read_data[:,2];
+            fluxerr=read_data[:,3];
+
             orig_flux = deepcopy(flux)
 
             #-----------------------------------------------------------
+            #-----------------------------------------------------------
             # Detrending
+            #-----------------------------------------------------------
             seg_inds=get_seg_inds(time);
             num_seg=size(seg_inds)[1];
 
@@ -74,12 +69,16 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
                 seg_ind=seg_inds[i,:];
                 segment_detrend!(seg_ind,time,flux);
             end
+            #-----------------------------------------------------------
 
-            data_write = hcat(time, flux, orig_flux, fluxerr)
+            #-----------------------------------------------------------
+            #Writing
 
             #-----------------------------------------------------------
             # Writing to files
+            data_write = hcat(time, flux, orig_flux, fluxerr)
             write_lightcurve_ascii(data_write, string("lightcurves_detrended/", koi_num, ".csv"))
+            #-----------------------------------------------------------
 
             #-----------------------------------------------------------
             #Testing: Only if testFlag is set
@@ -92,8 +91,7 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
                println(string("ASCII rw float vector passed test for KOI object ", koi_num))
             end
             #-----------------------------------------------------------
-            #Testing
-
+            #Testing: Only if plotFlag is set
             if (plotFlag=="make_plot")
                plot(time,orig_flux,linewidth=0, marker=".",markersize=1)
                plot(time,flux,color="red",linewidth=0, marker=".", markersize=1)
