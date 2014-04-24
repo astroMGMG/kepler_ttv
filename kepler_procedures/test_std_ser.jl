@@ -4,8 +4,8 @@ function test_std_ser(koi_filename::String)
         num_errors = 0
 
         for koi_num in koi_list
-            println("Reading data from 'lightcurves/", koi_num, ".csv")
-            read_path = string("lightcurves/", koi_num, ".csv")
+            println("Reading data from 'lightcurves_detrended/", koi_num, ".csv")
+            read_path = string("lightcurves_detrended/", koi_num, ".csv")
             data_read = read_lightcurve_ascii(read_path)
             detr_flux = data_read[:,2]
             orig_flux = data_read[:,3]

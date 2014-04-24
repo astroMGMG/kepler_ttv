@@ -1,8 +1,11 @@
 # Includes
 #-------------------------------------------------------
 using Base.Test
+using Optim;
 include("rw_functions.jl")
 include("client_init.jl")
+include("get_good_lightcurve_quarters.jl")
+
 #For detrending:
 include("get_good_indices.jl")
 include("get_seg_inds.jl");
@@ -43,7 +46,9 @@ function koi_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
         #Check if only one number in each row
         @assert size(koi_list)[2] == 1
 
-        my_kepler_client = client_init()
+        if (dataFlag=="get_mast_data")
+            my_kepler_client = client_init()
+        end
 
         for koi_num in koi_list
             if (dataFlag=="get_mast_data")
