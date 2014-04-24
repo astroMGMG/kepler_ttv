@@ -78,6 +78,7 @@ function ser_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
             # Writing to files
             data_write = hcat(time, flux, orig_flux, fluxerr)
             write_lightcurve_ascii(data_write, string("lightcurves_detrended/", koi_num, ".csv"))
+            println("Successfully wrote detrended data to file")
             #-----------------------------------------------------------
 
             #-----------------------------------------------------------
