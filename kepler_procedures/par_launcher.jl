@@ -1,5 +1,5 @@
 #using PyPlot;
-function par_launcher(koi_filename::String, num_procs::Int64, plotFlag="make_plot")
+function par_launcher(koi_filename::String, write_dir::String, num_procs::Int64, plotFlag="make_plot")
         include("set_procs.jl");
         set_procs(num_procs)
 
@@ -44,7 +44,7 @@ function par_launcher(koi_filename::String, num_procs::Int64, plotFlag="make_plo
             #-----------------------------------------------------------
             # Writing to files
             data_write = hcat(time, flux, orig_flux, fluxerr)
-            write_lightcurve_ascii(data_write, string("lightcurves_detrended/", koi_num, ".csv"))
+            write_lightcurve_ascii(data_write, string(write_dir,"/", koi_num, ".csv"))
             println("Successfully wrote detrended data file")
             #-----------------------------------------------------------
 
