@@ -1,6 +1,6 @@
 using Base.Test
 using Optim;
-function ser_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_plot")
+function ser_launcher(koi_filename::String, write_dir::String, testFlag="test_rw", plotFlag="make_plot")
         # Includes
         #-------------------------------------------------------
         include("rw_functions.jl")
@@ -77,7 +77,8 @@ function ser_launcher(koi_filename::String, testFlag="test_rw", plotFlag="make_p
             #-----------------------------------------------------------
             # Writing to files
             data_write = hcat(time, flux, orig_flux, fluxerr)
-            write_lightcurve_ascii(data_write, string("lightcurves_detrended/", koi_num, ".csv"))
+            write_lightcurve_ascii(data_write, string(write_dir,"/", koi_num, ".csv"))
+            println("Successfully wrote detrended data to file")
             #-----------------------------------------------------------
 
             #-----------------------------------------------------------
