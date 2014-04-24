@@ -2,3 +2,4 @@
 include("par_launcher.jl")
 
 @time par_launcher("koi_list.csv", "detrend_6", 6, "noplot")
+println("6 processors")
