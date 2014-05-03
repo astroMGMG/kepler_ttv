@@ -54,16 +54,37 @@ The _detrended data_ contains the following data columns (_o not use the **flux_
 **time, detrended_flux, untrended_flux, flux_error**. 
 
 #Getting Started with the parallel algorithm
-The parallel algorithm is very similar to the serial one (if you want to know more about it, see this link: LINK).
+The parallel algorithm is very similar to the serial one (if you want to know more about it, see our google-docs presentation through this link: LINK).
 
 Navigate to the `benchmark_data/` folder - this folder contains many of our benchmarks. 
 There you have the file `par_launcher.jl`. 
 This file initializes, and reads the `koi_list.csv` in _that directory_.
+`par_launcher()`, takes in the number of Julia processes that it should use.
 
+To get quickly started with this you could do the following after navigating to `benchmarking` within Julia:
+
+> include("benchmark_par_P.jl")
+
+where P is the number of processors (P = 1,2,3,..,9)
+
+Similarly, doing
+
+> include("benchmark_ser.jl")
+
+will benchmark the serial algorithm. 
+
+We show the speedups from these kinds of runs on the Penn State RCC in one of the figures above.
 
 ###Directory structure
+In this directory, the `kepler_procedures/`
 
+- `benchmarking/` - Benchmarking files. 
 
+- `lightcurves_detrended/` - The detrended data in ".csv" files (see discussion above)
+
+- `lightcurves_untrended/` - The untrended data in ".csv" files (see discussion above) 
+
+- `old_notebooks/` - Possibly depricated ipython notebooks that were used for development.
 
 
 #An Overview of the Packages used in this Project
