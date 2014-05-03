@@ -1,3 +1,6 @@
+#Some functions to work with NaNs in Julia;
+#Gudmundur - May 3rd, 2014
+
 function get_good_indices(array::Array)
     # Returns the non-NaN indices of `array`
     ind_good = find(val->!isnan(val), array)

@@ -14,14 +14,16 @@ function get_good_lightcurve_quarters(client, koi_name)
     # OUTPUTS:
     #       time      - A floating point array, containing the times 
     #       flux      - A floating point array, containing the measured fluxes
-    #       fluxerr   - A floating point array, containing the flux-errors
+    #       fluxerr   - A floating point array, containing the flux-errors - NOTE this is unscaled!
     #
     # NOTES:
-    #       errors are not scaled yet
+    #       The flux errors are not scaled; this doesn't hurt at this point, as we never use them.
+    #       - Originally the idea was to use them as weights for the cubic fitting.
     #
     # MODIFICATION HISTORY:
     #       March 22, 2014; by gummiks
     #       March 23, 2014; by gummiks - note errors are not scaled yet
+    #       May   3,  2014; by gummiks - extra note on FLuxerrors
     #
 
     time,pdcsap_flux,pdcsap_flux_err = [],[],[];
