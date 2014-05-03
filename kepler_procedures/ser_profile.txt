@@ -1,0 +1,330 @@
+2    ...sions/src/rkernels.jl; saccum; line: 58
+1    ...sions/src/rkernels.jl; saccum; line: 60
+3    ...sions/src/rkernels.jl; saccum; line: 61
+1    ...sions/src/rkernels.jl; saccum; line: 63
+1    abstractarray.jl; stride; line: 30
+1    linalg/dense.jl; diagind; line: 75
+1    range.jl; maximum; line: 202
+     2261 task.jl; anonymous; line: 89
+        2261 REPL.jl; eval_user_input; line: 47
+           2261 profile.jl; anonymous; line: 14
+            1    ...s/ser_launcher.jl; ser_launcher; line: 7
+            1    ...s/ser_launcher.jl; ser_launcher; line: 10
+            127  ...s/ser_launcher.jl; ser_launcher; line: 44
+              19  ...s/rw_functions.jl; read_ascii; line: 4
+               19 datafmt.jl; readcsv; line: 305
+                19 datafmt.jl; readdlm; line: 36
+                 19 datafmt.jl; readdlm; line: 38
+                  5  datafmt.jl; readdlm_auto; line: 43
+                   5 datafmt.jl; as_mmap; line: 51
+                     5 datafmt.jl; anonymous; line: 52
+                                    +58 2 ...ence.jl; ...ract_call_gf; line: 698
+                                    +72 2 ...ence.jl; ...ract_call_gf; line: 698
+                  14 datafmt.jl; readdlm_auto; line: 47
+                                    +37 1   ...nce.jl; ...ct_call_gf; line: 698
+                                   +133 1  ...nce.jl; ...act_call_gf; line: 698
+            1    ...s/ser_launcher.jl; ser_launcher; line: 50
+            3    ...s/ser_launcher.jl; ser_launcher; line: 51
+              3 string.jl; println; line: 5
+                 3 string.jl; print; line: 4
+            2    ...s/ser_launcher.jl; ser_launcher; line: 52
+              2 string.jl; string; line: 31
+            7    ...s/ser_launcher.jl; ser_launcher; line: 54
+              6 ...s/rw_functions.jl; read_lightcurve_ascii; line: 10
+               6 datafmt.jl; readcsv; line: 305
+                6 datafmt.jl; readdlm; line: 36
+                 6 datafmt.jl; readdlm; line: 38
+                  6 datafmt.jl; readdlm_auto; line: 47
+                     2 datafmt.jl; readdlm_string; line: 72
+                      1 datafmt.jl; dlm_dims; line: 209
+                      1 datafmt.jl; dlm_dims; line: 232
+                     4 datafmt.jl; readdlm_string; line: 80
+                      3 datafmt.jl; dlm_fill; line: 137
+                       3 datafmt.jl; _colval; line: 170
+            2    ...s/ser_launcher.jl; ser_launcher; line: 55
+                                     +3 1 ...ence.jl; ...ract_call_gf; line: 698
+            5    ...s/ser_launcher.jl; ser_launcher; line: 59
+            11   ...s/ser_launcher.jl; ser_launcher; line: 65
+                                     +6 4 ...ence.jl; abstract_call; line: 791
+                                    +25 1 ...ence.jl; ...ract_call_gf; line: 648
+            2    ...s/ser_launcher.jl; ser_launcher; line: 69
+                                     +3 1 ...ence.jl; ...ract_call_gf; line: 698
+            2076 ...s/ser_launcher.jl; ser_launcher; line: 70
+              1    ...gment_detrend.jl; segment_detrend!; line: 23
+               1 array.jl; getindex; line: 262
+              2017 ...gment_detrend.jl; segment_detrend!; line: 25
+               1996 ...src/curve_fit.jl; curve_fit; line: 15
+                8    ...rg_marquardt.jl; levenberg_marquardt; line: 34
+                  7 ...src/curve_fit.jl; f; line: 10
+                    6 ...trend_models.jl; cubicmodel; line: 8
+                     2 broadcast.jl; broadcast!; line: 227
+                     4 broadcast.jl; broadcast!; line: 574
+                      1 broadcast.jl; gen_broadcast_function; line: 185
+                      3 broadcast.jl; gen_broadcast_function; line: 186
+                1    ...rg_marquardt.jl; levenberg_marquardt; line: 36
+                1250 ...rg_marquardt.jl; levenberg_marquardt; line: 48
+                  1241 ...c/derivative.jl; g; line: 27
+                   130  ..._difference.jl; ...te_difference_jacobian; line: 198
+                     130 ...c/curve_fit.jl; f; line: 10
+                       126 ...end_models.jl; cubicmodel; line: 8
+                        2  array.jl; .*; line: 742
+                        7  array.jl; .*; line: 744
+                        1  array.jl; .*; line: 751
+                        13 array.jl; .+; line: 742
+                        2  array.jl; .+; line: 744
+                        29 array.jl; .^; line: 706
+                         2  array.jl; reshape; line: 91
+                        12 broadcast.jl; broadcast!; line: 220
+                        4  broadcast.jl; broadcast!; line: 227
+                            1 broadcast.jl; _F_; line: 96
+                            2 broadcast.jl; _F_; line: 292
+                        3  broadcast.jl; broadcast!; line: 571
+                         1 dict.jl; ht_keyindex2; line: 470
+                         2 dict.jl; ht_keyindex2; line: 475
+                        22 broadcast.jl; broadcast_shape; line: 30
+                          22 broadcast.jl; longer_size; line: 24
+                        6  broadcast.jl; broadcast_shape; line: 32
+                        7  broadcast.jl; broadcast_shape; line: 45
+                       1   array.jl; -; line: 712
+                       2   array.jl; -; line: 714
+                   18   ..._difference.jl; ...te_difference_jacobian; line: 201
+                     1  array.jl; length; line: 21
+                     10 array.jl; zeros; line: 159
+                        2 array.jl; fill!; line: 146
+                        5 array.jl; fill!; line: 147
+                   1093 ..._difference.jl; ...te_difference_jacobian; line: 204
+                      1   ...difference.jl; ..._difference_jacobian!; line: 27
+                      458 ...difference.jl; ..._difference_jacobian!; line: 182
+                        457 .../curve_fit.jl; f; line: 10
+                          443 ...d_models.jl; cubicmodel; line: 8
+                           11  array.jl; .*; line: 744
+                           39  array.jl; .*; line: 749
+                           7   array.jl; .*; line: 751
+                           27  array.jl; .+; line: 742
+                           5   array.jl; .+; line: 744
+                           181 array.jl; .^; line: 706
+                            10  array.jl; reshape; line: 91
+                           51  broadcast.jl; broadcast!; line: 220
+                           27  broadcast.jl; broadcast!; line: 227
+                               2 broadcast.jl; _F_; line: 88
+                               1 broadcast.jl; _F_; line: 95
+                               7 broadcast.jl; _F_; line: 96
+                               2 broadcast.jl; _F_; line: 292
+                               6 broadcast.jl; _F_; line: 295
+                           6   broadcast.jl; broadcast!; line: 571
+                            1 dict.jl; ht_keyindex2; line: 467
+                            2 dict.jl; ht_keyindex2; line: 470
+                            1 dict.jl; ht_keyindex2; line: 472
+                            1 dict.jl; ht_keyindex2; line: 475
+                           50  broadcast.jl; broadcast_shape; line: 30
+                             50 broadcast.jl; longer_size; line: 24
+                                1  broadcast.jl; longer_size; line: 23
+                           7   broadcast.jl; broadcast_shape; line: 32
+                           25  broadcast.jl; broadcast_shape; line: 45
+                          2   array.jl; -; line: 712
+                          8   array.jl; -; line: 714
+                      443 ...difference.jl; ..._difference_jacobian!; line: 184
+                        443 .../curve_fit.jl; f; line: 10
+                         1   ...end_models.jl; cubicmodel; line: 8
+                          428 ...d_models.jl; cubicmodel; line: 8
+                           3   array.jl; .*; line: 742
+                           15  array.jl; .*; line: 744
+                           17  array.jl; .*; line: 749
+                           8   array.jl; .*; line: 751
+                           27  array.jl; .+; line: 742
+                           4   array.jl; .+; line: 744
+                           172 array.jl; .^; line: 706
+                            10  array.jl; reshape; line: 91
+                           57  broadcast.jl; broadcast!; line: 220
+                           25  broadcast.jl; broadcast!; line: 227
+                               2 broadcast.jl; _F_; line: 88
+                               2 broadcast.jl; _F_; line: 95
+                               8 broadcast.jl; _F_; line: 96
+                               4 broadcast.jl; _F_; line: 292
+                               7 broadcast.jl; _F_; line: 295
+                           3   broadcast.jl; broadcast!; line: 571
+                            1 dict.jl; ht_keyindex2; line: 467
+                            1 dict.jl; ht_keyindex2; line: 470
+                            1 dict.jl; ht_keyindex2; line: 475
+                           1   broadcast.jl; broadcast!; line: 579
+                           77  broadcast.jl; broadcast_shape; line: 30
+                             76 broadcast.jl; longer_size; line: 24
+                                2  broadcast.jl; longer_size; line: 23
+                           4   broadcast.jl; broadcast_shape; line: 32
+                           7   broadcast.jl; broadcast_shape; line: 45
+                          4   array.jl; -; line: 712
+                          8   array.jl; -; line: 714
+                          1   array.jl; .*; line: 742
+                      188 ...difference.jl; ..._difference_jacobian!; line: 186
+                        50  array.jl; -; line: 712
+                        4   array.jl; -; line: 714
+                         27  ...ractarray.jl; /; line: 351
+                          5  array.jl; ./; line: 749
+                          22 array.jl; ./; line: 751
+                         1   ...ractarray.jl; checkbounds; line: 62
+                         1   ...mensional.jl; setindex!; line: 61
+                         3   ...mensional.jl; setindex!; line: 76
+                116  ...rg_marquardt.jl; levenberg_marquardt; line: 57
+                  1   array.jl; .^; line: 706
+                  4   linalg/dense.jl; diagm; line: 85
+                   2 linalg/dense.jl; diagm; line: 86
+                   2 linalg/dense.jl; diagm; line: 87
+                    1 array.jl; setindex!; line: 328
+                    1 array.jl; setindex!; line: 336
+                   14 ...rc/reducedim.jl; sum; line: 243
+                    10 ...c/reducedim.jl; reducedim; line: 204
+                     9 reducedim.jl; reduced_dims; line: 9
+                    3  ...c/reducedim.jl; reducedim; line: 205
+                     3 ...c/reducedim.jl; _reducedimimpl!; line: 166
+                   56 array.jl; .^; line: 706
+                    23 array.jl; reshape; line: 91
+                430  ...rg_marquardt.jl; levenberg_marquardt; line: 58
+                 2   array.jl; .*; line: 742
+                  3   array.jl; -; line: 654
+                  7   array.jl; -; line: 656
+                  48  array.jl; ctranspose; line: 1278
+                   33 array.jl; transpose!; line: 1239
+                   1  array.jl; transpose!; line: 1243
+                   7  array.jl; transpose!; line: 1263
+                   5  array.jl; transpose!; line: 1265
+                  70  linalg/dense.jl; \; line: 395
+                   70 ...actorization.jl; \; line: 798
+                    7  abstractarray.jl; copy; line: 202
+                     3 array.jl; copy!; line: 55
+                      3 array.jl; unsafe_copy!; line: 42
+                    44 linalg/lu.jl; A_ldiv_B!; line: 109
+                     44 linalg/lapack.jl; getrs!; line: 561
+                  36  linalg/dense.jl; \; line: 398
+                   2  abstractarray.jl; copy; line: 202
+                    2 array.jl; copy!; line: 55
+                     2 array.jl; unsafe_copy!; line: 42
+                      2  linalg/lu.jl; lufact!; line: 13
+                       2 linalg/lapack.jl; getrf!; line: 383
+                  1   linalg/matmul.jl; *; line: 68
+                   1 linalg/matmul.jl; gemv!; line: 219
+                  15  linalg/matmul.jl; Ac_mul_B; line: 163
+                   14 linalg/matmul.jl; At_mul_B!; line: 136
+                    1  linalg/matmul.jl; syrk_wrapper!; line: 223
+                    1  linalg/matmul.jl; syrk_wrapper!; line: 231
+                    12 linalg/matmul.jl; syrk_wrapper!; line: 237
+                     1 linalg/blas.jl; syrk!; line: 595
+                     6 linalg/blas.jl; syrk!; line: 597
+                     4 linalg/matmul.jl; copytri!; line: 193
+                     1 linalg/matmul.jl; copytri!; line: 194
+                                      4   ...ence.jl; ...ract_call_gf; line: 698
+                                    +22 4 ...ence.jl; ...ract_call_gf; line: 698
+                                    +46 1 ...ence.jl; abstract_call; line: 791
+                                    +48 1 ...ence.jl; ...ract_call_gf; line: 698
+                                    +12 1   ...nce.jl; ...ct_call_gf; line: 698
+                                    +22 4   ...nce.jl; ...ct_call_gf; line: 698
+                                    +46 4 ...ence.jl; ...ract_call_gf; line: 698
+                                    +24 4   ...nce.jl; ...ct_call_gf; line: 698
+                                    +48 3   ...nce.jl; ...ct_call_gf; line: 698
+                                    +53 3   ...nce.jl; ...ct_call_gf; line: 698
+                                    +60 13 ...nce.jl; ...act_call_gf; line: 698
+                                    +98 5 ...ence.jl; ...ract_call_gf; line: 698
+                                    +65 11 ...nce.jl; ...act_call_gf; line: 698
+                                    +79 1  ...nce.jl; ...act_call_gf; line: 698
+                                    +88 1  ...nce.jl; anonymous; line: 364
+                                   +102 1  ...nce.jl; ...act_call_gf; line: 698
+                                   +116 1 ...ence.jl; ...ract_call_gf; line: 698
+                                   +116 5 ...ence.jl; ...ract_call_gf; line: 698
+                22   ...rg_marquardt.jl; levenberg_marquardt; line: 60
+                  7 array.jl; +; line: 712
+                  9 linalg/matmul.jl; *; line: 68
+                   9 linalg/matmul.jl; gemv!; line: 219
+                    9 linalg/blas.jl; gemv!; line: 261
+                  1 linalg/matmul.jl; Ac_mul_B; line: 61
+                1    ...rg_marquardt.jl; levenberg_marquardt; line: 63
+                135  ...rg_marquardt.jl; levenberg_marquardt; line: 67
+                  134 ...rc/curve_fit.jl; f; line: 10
+                    131 ...rend_models.jl; cubicmodel; line: 8
+                     2  array.jl; .*; line: 744
+                     1  array.jl; .*; line: 751
+                     33 array.jl; .+; line: 742
+                     1  array.jl; .+; line: 744
+                     54 array.jl; .^; line: 706
+                      3  array.jl; reshape; line: 91
+                     6  broadcast.jl; broadcast!; line: 220
+                     4  broadcast.jl; broadcast!; line: 227
+                         1 broadcast.jl; _F_; line: 88
+                          1 broadcast.jl; check_broadcast_shape; line: 51
+                         2 broadcast.jl; _F_; line: 96
+                         1 broadcast.jl; _F_; line: 292
+                     1  broadcast.jl; broadcast!; line: 228
+                     1  broadcast.jl; broadcast!; line: 571
+                      1 dict.jl; ht_keyindex2; line: 475
+                     15 broadcast.jl; broadcast_shape; line: 30
+                       14 broadcast.jl; longer_size; line: 24
+                          1  broadcast.jl; longer_size; line: 23
+                     2  broadcast.jl; broadcast_shape; line: 32
+                     7  broadcast.jl; broadcast_shape; line: 45
+                    1   array.jl; -; line: 712
+                  1   array.jl; +; line: 712
+                6    ...rg_marquardt.jl; levenberg_marquardt; line: 69
+                  6 linalg/matmul.jl; Ac_mul_B; line: 61
+                   1 linalg/blas.jl; dot; line: 144
+                1    ...rg_marquardt.jl; levenberg_marquardt; line: 71
+                18   ...rg_marquardt.jl; levenberg_marquardt; line: 96
+                  1  linalg/matmul.jl; Ac_mul_B; line: 102
+                   1 linalg/matmul.jl; gemv!; line: 219
+                    1 linalg/blas.jl; gemv!; line: 261
+                6    ...rg_marquardt.jl; levenberg_marquardt; line: 98
+                   3 linalg/generic.jl; norm; line: 144
+                    3 linalg/generic.jl; vecnorm; line: 134
+                     3 linalg/dense.jl; vecnorm2; line: 22
+                2    ...rg_marquardt.jl; levenberg_marquardt; line: 108
+               21   ...src/curve_fit.jl; curve_fit; line: 17
+                 16 ...rc/derivative.jl; g; line: 27
+                  1  ...e_difference.jl; finite_difference_jacobian; line: 198
+                    1 ...rc/curve_fit.jl; f; line: 10
+                      1 ...trend_models.jl; cubicmodel; line: 8
+                       1 broadcast.jl; broadcast!; line: 227
+                           1 broadcast.jl; _F_; line: 295
+                  1  ...e_difference.jl; finite_difference_jacobian; line: 201
+                    1 array.jl; zeros; line: 159
+                       1 array.jl; fill!; line: 146
+                  14 ...e_difference.jl; finite_difference_jacobian; line: 204
+                     2  ..._difference.jl; ...e_difference_jacobian!; line: 182
+                       2 ...c/curve_fit.jl; f; line: 10
+                         2 ...end_models.jl; cubicmodel; line: 8
+                          2 array.jl; .^; line: 706
+                     2  ..._difference.jl; ...e_difference_jacobian!; line: 184
+                       2 ...c/curve_fit.jl; f; line: 10
+                         2 ...end_models.jl; cubicmodel; line: 8
+                          1 array.jl; .*; line: 751
+                          1 array.jl; .^; line: 706
+                     10 ..._difference.jl; ...e_difference_jacobian!; line: 186
+                       4 array.jl; -; line: 712
+                        1 abstractarray.jl; /; line: 351
+                         1 array.jl; ./; line: 751
+                 5  ...src/curve_fit.jl; f; line: 10
+                   5 ...etrend_models.jl; cubicmodel; line: 8
+                    5 broadcast.jl; broadcast_shape; line: 30
+                      5 broadcast.jl; longer_size; line: 24
+              5    ...gment_detrend.jl; segment_detrend!; line: 26
+               3 broadcast.jl; broadcast!; line: 227
+               2 broadcast.jl; broadcast!; line: 574
+                2 broadcast.jl; gen_broadcast_function; line: 186
+                                     1  ...ators.jl; !=; line: 15
+                                    +25 10 ...nce.jl; ...act_call_gf; line: 698
+                                    +39 7  ...nce.jl; ...act_call_gf; line: 698
+                                    +53 1 ...ence.jl; ...ract_call_gf; line: 688
+                                    +56 1 ...tors.jl; !=; line: 15
+                                    +53 6 ...ence.jl; ...ract_call_gf; line: 698
+            5    ...s/ser_launcher.jl; ser_launcher; line: 79
+              1 abstractarray.jl; hcat; line: 523
+            18   ...s/ser_launcher.jl; ser_launcher; line: 80
+              14 ...s/rw_functions.jl; write_lightcurve_ascii; line: 20
+               14 datafmt.jl; writecsv; line: 372
+                14 datafmt.jl; writedlm; line: 366
+                 14 io.jl; open; line: 368
+                  8 datafmt.jl; anonymous; line: 367
+                      4 datafmt.jl; writedlm; line: 326
+                       1 grisu.jl; _print_shortest; line: 15
+                       1 grisu.jl; _print_shortest; line: 135
+                       1 grisu.jl; _print_shortest; line: 157
+                       1 grisu.jl; _print_shortest; line: 171
+                                 1 inference.jl; abstract_call_gf; line: 698
+                                    +13 1 ...ence.jl; ...ract_call_gf; line: 698
+
