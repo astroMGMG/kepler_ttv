@@ -11,7 +11,6 @@ function ser_launcher(koi_filename::String, write_dir::String, testFlag="test_rw
         include("segment_detrend.jl");
         include("detrend_models.jl");
         #-------------------------------------------------------
-
 	#NAME:
 	#       koi_launcher(koi_filename::String)
 	#
