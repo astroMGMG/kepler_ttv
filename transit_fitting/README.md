@@ -12,7 +12,7 @@ Writes an array or real numbers to a binary file
 <code>read_file_binary</code>
 Reads a binary file into array. Currently it reads binary files containing only time and normalized flux. Will need modification to add in uncertainty, and non-normalized flux. 
 
-Binary files were chosen for reading and writing because 
+Binary files were chosen for reading and writing because it is much faster to access a binary file than an ASCII file.
 
 <code> lagrange_deriv</code>
 
@@ -50,9 +50,9 @@ Currently, this is roughly an O(n) problem. Lagrange derivatives work through ea
 
 Chose binary because during profiling, a lot of time was being spent in file i/o. Binary is orders of magnitude faster than CSV.
 
-#<!push>
+#<push!>
 
-Instantiating arrays and using !Push was much faster than creating empty arrays and using !append. 
+Instantiating arrays and using push! was much faster than creating empty arrays and concatenating into them. 
 
 #Parallelization
 
