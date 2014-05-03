@@ -21,12 +21,63 @@ These `kepler_procedures` make use of several other packages.
 + `Optim` (Julia package that provides fitting routines)
 + `PyPlot` (Provides plotting functionality by calling Python's `matlibplot`
 
+#Description of a few important files and the directory structure
+
+##Directory structure/Julia files
+<code>rw_functions.jl</code>: A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
+
+<code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
+
+<code>get_good_indices.jl</code>: Functions to work with, and remove NaNs in an array.
+
+<code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
+
+<code>koi_launcher.jl</code>: The overall wrapper program that reads <code>koi_list.csv</code>, gets data using `kplr`, detrends the data, and saves the output data (time, detrended-flux, and original-flux, flux-error) in the <code>lightcurves/</code>/` detrends  Detrends a segment (applies a cubic fit to the data, and subtracts it.
+
+##Getting Started with the serial algorithm
+Lets run some tests! 
+
+Will need to be in the `kepler_procedures` folder to run these tests.
+
+We perform a series of tests (see `run_tests.jl` for more details). It currently performs three tests:
+
+-  one large regression test (test 1). 
+
+-  and two unit tests (test 2 and 3). 
+
+
+Within Julia, issue the following command:
+
+>include("run_tests.jl")
+
+This should run tests 1,2,3 for the serial algorithm.
+Test 1 will probably print out a long list of _"Exceeded maximum number of iterations"_. 
+This is produced from the "Optim" package and can safely be ignored.
+
+The file <code>koi_list.csv</code> contains a list of KOI objects, each object in one row, and the function <code>koi_launcher.jl</code> will read this file to retrieve data from the MAST database (if the `dataFlag==get_mast_data`) for each of these objects.
+
+The retrieved data for a KOI object from MAST will be saved to an individual `.csv` file in `lightcurves_untrended` and `lightcurves_detrended/`; which contain the _untrended_, and _detrended data_, respectfully. 
+
+The _untrended data_ contains the following data columns; **time, untrended_flux, flux_error**. Do not use the **flux_error**, it needs to be fixed.
+
+The _detrended data_ contains the following data columns; **time, detrended_flux, untrended_flux, flux_error**. Do not use the **flux_error**, it needs to be fixed.
+
+
+
+
+
+
+
+
+
+
+
 #An Overview of the Packages used in this Project
-##The `kplr` package
+##1 - The `kplr` package
 The `kplr` package will provide the greatest functionality with the most ease.
 This is a python package but can be used within Julia via the package `PyCall`.
 
-###Installation instructions
+####`kplr` Installation instructions
 Either:
 > pip install kplr 
 
@@ -37,25 +88,22 @@ Or:
 
 >python setup.py install 
 
-**And then within Julia:**
+
+##2 - The `PyCall` package
+You will need to install <code>PyCall as well</code>
+
+**You do that within Julia:**
 
 > Pkg.add("PyCall")
 
 > Pkg.update()
 
-You will also need to install <code>PyFits</code>: _Issue the following commands:_
+####Notes for using PyCall in Julia
+The biggest diffence from Python is that object attributes/members are accessed with omyObject[:attribute] rather than myObject.attribute, and you use get(myObject, key) rather than myObject[key].
+(This is because Julia does not permit overloading the . operator yet.)
+See also the section on <code>PyObject</code> below, as well as the pywrap function to create anonymous modules that simulate . access (this is what <code>@pyimport</code> does).
 
-> git clone https://github.com/spacetelescope/PyFITS.git 
-
-> cd PyFITS
-
-> python setup.py install
-
-And you are all set!
-
-More documentation here: http://dan.iel.fm/kplr/ 
-
-###Using the `kplr` package
+####Short example of how to use the `kplr` package
 In Julia, issue the following commands:
 
 >julia> using PyCall
@@ -68,56 +116,27 @@ In Julia, issue the following commands:
  
 >julia> koi=client[:koi](952.01)
 
-##Notes for using PyCall in Julia
-The biggest diffence from Python is that object attributes/members are accessed with omyObject[:attribute] rather than myObject.attribute, and you use get(myObject, key) rather than myObject[key].
-(This is because Julia does not permit overloading the . operator yet.)
-See also the section on <code>PyObject</code> below, as well as the pywrap function to create anonymous modules that simulate . access (this is what <code>@pyimport</code> does).
+##3 - `PyFits` 
+You will also need to install <code>PyFits</code>: _Issue the following commands:_
 
-###Small example
-For example, using <code>Biopython</code> we can do:
+> git clone https://github.com/spacetelescope/PyFITS.git 
 
- >@pyimport Bio.Seq as s
+> cd PyFITS
 
- >@pyimport Bio.Alphabet as a
+> python setup.py install
 
- >my_dna = s.Seq("AGTACACTGGT", a.generic_dna)
+And you are all set!
 
- >my_dna[:find]("ACT")
+More documentation here: http://dan.iel.fm/kplr/ 
 
- >whereas in Python the last step would have been my_dna.find("ACT")
+##4 - The `Optim` package
 
-
-##The `Optim` package
-
-To install:
+**To install, you do that within Julia:**
 
 > Pkg.add("Optim")
 
 > Pkg.update()
 
-Then just:
+Then within a `.jl` file just include in the beginning of the file:
 
->using Optim
-
-See the `optim_fittin.ipynb` notebook for an example
-
-
-
-#Description of a few important files
-##General Description/Documentation
-<code>OPEN_ME.ipynb</code> A notebook that describes how to get started and runs several tests.
-
-<code>README.md</code>: This **README.md** file.
-
-<code>koi_list.csv</code>: This is the list of KOI objects, each in one row, the <code>koi_launcher.jl</code> will read this file to check for data for these objects. It includes the following data columns; time, detrended_flux, untrended_flux, flux_error. Do not use the flux_error, it needs to be fixed.
-
-##Julia files
-<code>rw_functions.jl</code>: A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
-
-<code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
-
-<code>get_good_indices.jl</code>: Functions to work with, and remove NaNs in an array.
-
-<code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
-
-<code>koi_launcher.jl</code>: The overall wrapper program that reads <code>koi_list.csv</code>, gets data using `kplr`, detrends the data, and saves the output data (time, detrended-flux, and original-flux, flux-error) in the <code>lightcurves/</code>/` detrends  Detrends a segment (applies a cubic fit to the data, and subtracts it.
+>using Optim;
