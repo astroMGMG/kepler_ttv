@@ -2,7 +2,10 @@
 This project was an exercise for our graduate class in scientific computing.  We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.  We implemented a detrending routine for Kepler data.  Detrending removes systematic and stellar variation and allows for transits to be observed without other signals.
 
 Detrending picture
-![alt text](detrend_vs_untrend.png "blah")
+![alt text](detrend_vs_untrend.png "The detrended data vs. the trended data")
+
+Speedup picture
+![alt text](speedup_rcc.png "The speedup of the parallel code over the serial code")
 
 These `kepler_procedures` make use of several other packages.
 + PyCall (allows access to Python packages with Julia)
