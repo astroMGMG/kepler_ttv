@@ -15,16 +15,16 @@ These results were obtained by using the LionXJ cluster at Penn. State Universit
 We used Julia's `DArray` (distributed arrays) and `@spawnat` functions to implement our parallelization.
 
 These `kepler_procedures` make use of several other packages.
-+ PyCall (allows access to Python packages with Julia)
-+ kplr (Python package that provides useful tools for downloading Kepler lightcurves)
-+ PyFits (Needed for kplr)
-+ Optim (Julia package that provides fitting routines)
-+ PyPlot (Provides plotting functionality by calling Python's `matlibplot`
++ `PyCall` (allows access to Python packages with Julia)
++ `kplr` (Python package that provides useful tools for downloading Kepler lightcurves)
++ `PyFits` (Needed for kplr)
++ `Optim` (Julia package that provides fitting routines)
++ `PyPlot` (Provides plotting functionality by calling Python's `matlibplot`
 
 #An Overview of the Packages used in this Project
 ##The `kplr` package
 The `kplr` package will provide the greatest functionality with the most ease.
-This is a python package but can be used within Julia via the package <code>PyCall</code>.
+This is a python package but can be used within Julia via the package `PyCall`.
 
 ###Installation instructions
 Either:
