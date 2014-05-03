@@ -3,10 +3,12 @@ This project was an exercise for our graduate class in scientific computing.  We
 
 These `kepler_procedures` make use of several other packages.
 + PyCall (allows access to Python packages with Julia)
-+ kplr (a Python package)
-+ Optim
-+ PyPlot
++ kplr (Python package that provides useful tools for downloading Kepler lightcurves)
++ PyFits (Needed for kplr)
++ Optim (Julia package that provides fitting routines)
++ PyPlot (Provides plotting functionality by calling Python's `matlibplot`
 
+#An Overview of the Packages used in this Project
 ##The `kplr` package
 The `kplr` package will provide the greatest functionality with the most ease.
 This is a python package but can be used within Julia via the package <code>pycall</code>.
@@ -53,12 +55,12 @@ In Julia, issue the following commands:
  
 >julia> koi=client[:koi](952.01)
 
-###Notes for using PyCall in Julia
+##Notes for using PyCall in Julia
 The biggest diffence from Python is that object attributes/members are accessed with omyObject[:attribute] rather than myObject.attribute, and you use get(myObject, key) rather than myObject[key].
 (This is because Julia does not permit overloading the . operator yet.)
 See also the section on <code>PyObject</code> below, as well as the pywrap function to create anonymous modules that simulate . access (this is what <code>@pyimport</code> does).
 
-#####Small example
+###Small example
 For example, using <code>Biopython</code> we can do:
 
  >@pyimport Bio.Seq as s
@@ -72,7 +74,7 @@ For example, using <code>Biopython</code> we can do:
  >whereas in Python the last step would have been my_dna.find("ACT")
 
 
-#The `Optim` package
+##The `Optim` package
 
 To install:
 
@@ -106,5 +108,3 @@ See the `optim_fittin.ipynb` notebook for an example
 <code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
 
 <code>koi_launcher.jl</code>: The overall wrapper program that reads <code>koi_list.csv</code>, gets data using `kplr`, detrends the data, and saves the output data (time, detrended-flux, and original-flux, flux-error) in the <code>lightcurves/</code>/` detrends  Detrends a segment (applies a cubic fit to the data, and subtracts it.
-
-
