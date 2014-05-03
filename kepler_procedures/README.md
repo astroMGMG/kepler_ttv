@@ -1,5 +1,14 @@
-#The `kplr` package
-The kplr package will provide the greatest functionality with the most ease.
+#`kepler_procedures`
+This project was an exercise for our graduate class in scientific computing.  We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.  We implemented a detrending routine for Kepler data.  Detrending removes systematic and stellar variation and allows for transits to be observed without other signals.
+
+These `kepler_procedures` make use of several other packages.
++ PyCall (allows access to Python packages with Julia)
++ kplr (a Python package)
++ Optim
++ PyPlot
+
+##The `kplr` package
+The `kplr` package will provide the greatest functionality with the most ease.
 This is a python package but can be used within Julia via the package <code>pycall</code>.
 
 ###Installation instructions
@@ -97,4 +106,5 @@ See the `optim_fittin.ipynb` notebook for an example
 <code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
 
 <code>koi_launcher.jl</code>: The overall wrapper program that reads <code>koi_list.csv</code>, gets data using `kplr`, detrends the data, and saves the output data (time, detrended-flux, and original-flux, flux-error) in the <code>lightcurves/</code>/` detrends  Detrends a segment (applies a cubic fit to the data, and subtracts it.
+
 
