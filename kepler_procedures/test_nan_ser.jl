@@ -1,4 +1,5 @@
 function test_nan_ser(koi_filename::String)
+    #See description in "run_tests.jl"
         koi_list = read_ascii(koi_filename)
         num_errors = 0
 

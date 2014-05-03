@@ -35,7 +35,7 @@ function segment_detrend(seg_inds,time,flux)
 #   segment_detrend!(seg_inds,time,flux)
 #
 # INPUTS:
-#   seg_inds    - A duple
+#   seg_inds    - A tuple, containing the starting, and ending points of the segment
 #   time        - The total time vector
 #   flux        - The total flux vector
 #
@@ -48,12 +48,9 @@ function segment_detrend(seg_inds,time,flux)
 
     seg_indices=seg_inds[1]:1:seg_inds[2];
     xpts = time[seg_indices];
-#    println("xpts:",length(xpts))
     ypts = flux[seg_indices];
-#    println("ypts:",length(ypts))
 
     beta, r, J = curve_fit(cubicmodel, xpts, ypts, [1.0, 0.0, 0.0, 0.0]);
     retval=flux[seg_indices]./cubicmodel(xpts,beta);
-#    println("retval:",length(retval))
     return retval
 end
