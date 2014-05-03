@@ -63,6 +63,10 @@ Spawning is done in two parts. First, withing curve fitting, finding width, dept
 One possible place this can be sped up is anywhere that reads an array. The arrays can be broken into pieces and each piece worked on by an array, then the result stitched together. This is something to be considered in the future.
 
 
+##Testing
+
+The Testing directory shows our efforts at speeding up the performance of our code.
+
 ##Future
 
 This curve fitting function is incomplete. The ultimate goal is to find TTVs, and while this is a start, it has it's issues. 
