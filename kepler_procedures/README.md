@@ -1,4 +1,4 @@
-#`kepler_procedures`
+#A Kepler lightcurve detrender in serial & parallel
 This project was an exercise for our graduate class in scientific computing.
 We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.
 We implemented a detrending routine for Kepler data.
@@ -21,20 +21,7 @@ These `kepler_procedures` make use of several other packages.
 + `Optim` (Julia package that provides fitting routines)
 + `PyPlot` (Provides plotting functionality by calling Python's `matlibplot`
 
-#Description of a few important files and the directory structure
-
-##Directory structure/Julia files
-<code>rw_functions.jl</code>: A set of functions for reading and writing the lightcurve data for files. Currently contains only methods for **ascii** data but will also allow for **hdf5** rountines.
-
-<code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
-
-<code>get_good_indices.jl</code>: Functions to work with, and remove NaNs in an array.
-
-<code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
-
-<code>koi_launcher.jl</code>: The overall wrapper program that reads <code>koi_list.csv</code>, gets data using `kplr`, detrends the data, and saves the output data (time, detrended-flux, and original-flux, flux-error) in the <code>lightcurves/</code>/` detrends  Detrends a segment (applies a cubic fit to the data, and subtracts it.
-
-##Getting Started with the serial algorithm
+#Getting Started with the serial algorithm
 Lets run some tests! 
 
 Will need to be in the `kepler_procedures` folder to run these tests.
@@ -65,6 +52,21 @@ The _untrended data_ contains the following data columns (_do not use the **flux
 The _detrended data_ contains the following data columns (_o not use the **flux_error**, it needs to be fixed_):
 
 **time, detrended_flux, untrended_flux, flux_error**. 
+
+#Getting Started with the parallel algorithm
+The parallel algorithm is very similar to the serial one (if you want to know more about it, see this link: LINK).
+
+Navigate to the `benchmark_data/` folder - this folder contains many of our benchmarks. 
+There you have the file `par_launcher.jl`. 
+This file initializes, and reads the `koi_list.csv` in _that directory_.
+
+
+###Directory structure
+<code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
+
+<code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
+
+<code>koi_launcher.jl</code>: The overall wrapper program that reads <code>koi_list.csv</code>, gets data using `kplr`, detrends the data, and saves the output data (time, detrended-flux, and original-flux, flux-error) in the <code>lightcurves/</code>/` detrends  Detrends a segment (applies a cubic fit to the data, and subtracts it.
 
 
 
