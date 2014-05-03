@@ -62,11 +62,7 @@ This file initializes, and reads the `koi_list.csv` in _that directory_.
 
 
 ###Directory structure
-<code>client_init.jl</code>: Loads PyCall, kplr and initializes the MAST API client.
 
-<code>segment_detrend.jl</code>: Detrends a segment (applies a cubic fit to the data, and subtracts it.
-
-<code>koi_launcher.jl</code>: The overall wrapper program that reads <code>koi_list.csv</code>, gets data using `kplr`, detrends the data, and saves the output data (time, detrended-flux, and original-flux, flux-error) in the <code>lightcurves/</code>/` detrends  Detrends a segment (applies a cubic fit to the data, and subtracts it.
 
 
 
