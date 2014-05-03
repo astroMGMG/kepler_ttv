@@ -1,23 +1,30 @@
 #`kepler_procedures`
-This project was an exercise for our graduate class in scientific computing.  We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.  We implemented a detrending routine for Kepler data.  Detrending removes systematic and stellar variation and allows for transits to be observed without other signals.
+This project was an exercise for our graduate class in scientific computing.
+We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.
+We implemented a detrending routine for Kepler data.
+Detrending removes systematic and stellar variation and allows for transits to be observed without other signals.
 
-Detrending picture
+Here we have a plot showing the result of detrending.
 ![alt text](detrend_vs_untrend.png "The detrended data vs. the trended data")
+Notice that the transits are not removed by this process.
+Better detrending can be achieved by using a higher order model (currently we use a cubic).
 
-Speedup picture
+Here we present the performance of parallelization.
 ![alt text](speedup_rcc.png "The speedup of the parallel code over the serial code")
+These results were obtained by using the LionXJ cluster at Penn. State University.
+We used Julia's `DArray` (distributed arrays) and `@spawnat` functions to implement our parallelization.
 
 These `kepler_procedures` make use of several other packages.
-+ PyCall (allows access to Python packages with Julia)
-+ kplr (Python package that provides useful tools for downloading Kepler lightcurves)
-+ PyFits (Needed for kplr)
-+ Optim (Julia package that provides fitting routines)
-+ PyPlot (Provides plotting functionality by calling Python's `matlibplot`
++ `PyCall` (allows access to Python packages with Julia)
++ `kplr` (Python package that provides useful tools for downloading Kepler lightcurves)
++ `PyFits` (Needed for kplr)
++ `Optim` (Julia package that provides fitting routines)
++ `PyPlot` (Provides plotting functionality by calling Python's `matlibplot`
 
 #An Overview of the Packages used in this Project
 ##The `kplr` package
 The `kplr` package will provide the greatest functionality with the most ease.
-This is a python package but can be used within Julia via the package <code>PyCall</code>.
+This is a python package but can be used within Julia via the package `PyCall`.
 
 ###Installation instructions
 Either:

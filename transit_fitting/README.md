@@ -1,10 +1,11 @@
-## <code>curve_fitting.jl</code> Description
+# <code>curve_fitting.jl</code> 
+##Description
 
 This is the Julia File which contains all the functions needed to perform a basic fit to a periodic transit. Curve fitting fits a transit widtdh, transit depth, and period between transits. 
 
 This .jl file stands as our to-date draft of functional functions. It is the output of functions built and tested in python notebooks. Subsequent changes will either manifest as new fully functional .jl files, or replacement functions in curve_fitting.jl.
 
-#Description of Functions
+###Description of Functions
 
 <code>write_file_binary</code>
 Writes an array or real numbers to a binary file
@@ -42,34 +43,44 @@ Uses all other functions to find a model curve based on average transit width, t
 Spawns multiple curve fitting functions. For use on Multiple Processors. 
 Currently, this is roughly an O(n) problem. Lagrange derivatives work through each element of an array individually. Each element of a marker file is also examined individually. This also shows in scaling with problem size. Order 1,000,000 arrays still work relatively quickly
 
-##Current Speedup and Parallelization
+#<code>run_curve.jl</code>
 
-#Speedup
+##Description
 
-#Choice of Binary over CSV
+Julia code used to actually run the curve fitting on the RCC cluster. It returns the elapsed time for executing the code.
+
+#<code>julia-curve.pbs</code>
+
+##Description
+
+Code used to put the <code>run_curve.jl</code> file on the RCC cluster. Number of nodes and processors can vary.
+
+#Current Speedup and Parallelization
+
+##Speedup
+
+###Choice of Binary over CSV
 
 Chose binary because during profiling, a lot of time was being spent in file i/o. Binary is orders of magnitude faster than CSV.
 
-#<push!>
+###push!
 
 Instantiating arrays and using push! was much faster than creating empty arrays and concatenating into them. 
 
-#Parallelization
+##Parallelization
 
-#@spawn
+###@spawn
 Spawning is done in two parts. First, withing curve fitting, finding width, depth, and period are all spawned. This however shows no real speedup over maintaining them all as a single process. The second spawning is done in <code>multiples</code> where the curve fitting for each light curve is sent to its own processor. 
 
-#Future parallelization
-One possible place this can be sped up is anywhere that reads an array. The arrays can be broken into pieces and each piece worked on by an array, then the result stitched together. This is something to be considered in the future.
-
-
-##Testing
-
-The Testing directory shows our efforts at speeding up the performance of our code.
-
-##Future
+#Future Work
 
 This curve fitting function is incomplete. The ultimate goal is to find TTVs, and while this is a start, it has it's issues. 
 
 One possible future is that error flags are added, and this is used as the quick first step in finding test periods for an interative period finder. The period finder then finds a period, and we can use that to get width and depth. TTvs can then be found through a process that moves back and forth.
 
+#Future parallelization
+One possible place this can be sped up is anywhere that reads an array. The arrays can be broken into pieces and each piece worked on by an array, then the result stitched together. This is something to be considered in the future.
+
+#Testing
+
+The Testing directory shows our efforts at speeding up the performance of our code.
