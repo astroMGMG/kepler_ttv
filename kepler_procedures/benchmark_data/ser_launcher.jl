@@ -3,13 +3,13 @@ using Optim;
 function ser_launcher(koi_filename::String, write_dir::String, testFlag="test_rw", plotFlag="make_plot")
         # Includes
         #-------------------------------------------------------
-        include("rw_functions.jl")
-        include("get_good_lightcurve_quarters.jl")
+        include("../rw_functions.jl")
+        include("../get_good_lightcurve_quarters.jl")
         #For detrending:
-        include("get_good_indices.jl")
-        include("get_seg_inds.jl");
-        include("segment_detrend.jl");
-        include("detrend_models.jl");
+        include("../get_good_indices.jl")
+        include("../get_seg_inds.jl");
+        include("../segment_detrend.jl");
+        include("../detrend_models.jl");
         #-------------------------------------------------------
 	#NAME:
 	#       koi_launcher(koi_filename::String)
@@ -48,7 +48,7 @@ function ser_launcher(koi_filename::String, write_dir::String, testFlag="test_rw
 
         for koi_num in koi_list
             println("Reading data for KOI object: ", koi_num);
-            readstring = string("lightcurves_untrended/",koi_num,".csv");
+            readstring = string("../lightcurves_untrended/",koi_num,".csv");
             println(readstring);
             read_data = read_lightcurve_ascii(readstring);
             time =read_data[:,1];
@@ -84,7 +84,7 @@ function ser_launcher(koi_filename::String, write_dir::String, testFlag="test_rw
             #Testing: Only if testFlag is set
             if (testFlag=="test_rw")
                println("Running Read/Write tests") 
-               readpath = string("lightcurves_detrended/", koi_num, ".csv")
+               readpath = string("../lightcurves_detrended/", koi_num, ".csv")
                println("Reading data from ", readpath) 
                data_read = read_lightcurve_ascii(readpath)
                @test_approx_eq_eps(data_write,data_read,0.001)

@@ -1,15 +1,15 @@
 #using PyPlot;
 function par_launcher(koi_filename::String, write_dir::String, num_procs::Int64, plotFlag="make_plot")
-        include("set_procs.jl");
+        include("../set_procs.jl");
         set_procs(num_procs)
 
         @everywhere using Optim;
-        @everywhere include("rw_functions.jl");
-        @everywhere include("get_seg_inds.jl");
-        @everywhere include("segment_detrend.jl");
-        @everywhere include("detrend_models.jl");
-        @everywhere include("segment_detrend.jl")
-        @everywhere include("par_segment_detrend.jl");
+        @everywhere include("../rw_functions.jl");
+        @everywhere include("../get_seg_inds.jl");
+        @everywhere include("../segment_detrend.jl");
+        @everywhere include("../detrend_models.jl");
+        @everywhere include("../segment_detrend.jl")
+        @everywhere include("../par_segment_detrend.jl");
 
         #-----------------------------------------------------------
         # Reading
@@ -21,7 +21,7 @@ function par_launcher(koi_filename::String, write_dir::String, num_procs::Int64,
 
         for koi_num in koi_list
             println("Reading data for KOI object: ", koi_num);
-            readstring = string("lightcurves_untrended/",koi_num,".csv");
+            readstring = string("../lightcurves_untrended/",koi_num,".csv");
             println(readstring);
             read_data = read_lightcurve_ascii(readstring);
             time =read_data[:,1];
