@@ -2,10 +2,10 @@
 This project was an exercise for our graduate class in scientific computing.  We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.  We implemented a detrending routine for Kepler data.  Detrending removes systematic and stellar variation and allows for transits to be observed without other signals.
 
 These `kepler_procedures` make use of several other packages.
-+PyCall (allows access to Python packages with Julia)
-+kplr (a Python package)
-+Optim
-+PyPlot
++ PyCall (allows access to Python packages with Julia)
++ kplr (a Python package)
++ Optim
++ PyPlot
 
 ##The `kplr` package
 The `kplr` package will provide the greatest functionality with the most ease.
