@@ -1,5 +1,6 @@
 #`kepler_procedures`
 This project was an exercise for our graduate class in scientific computing.
+Here is a [link to our presentation](https://docs.google.com/presentation/d/1JA7amOs9jUSS1sviu2E3LiKAmCTDrXjJgWz_Xogk7iE/edit?usp=sharing "presentation on this project").
 We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.
 We implemented a detrending routine for Kepler data.
 Detrending removes systematic and stellar variation and allows for transits to be observed without other signals.
