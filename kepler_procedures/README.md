@@ -90,7 +90,7 @@ See the `optim_fittin.ipynb` notebook for an example
 
 #Description of a few important files
 ##General Description/Documentation
-<code>OPEN_ME.ipynb</code> Is a notebook that describes on how to get started, and run the tests.
+<code>OPEN_ME.ipynb</code> A notebook that describes how to get started and runs several tests.
 
 <code>README.md</code>: This **README.md** file.
 
