@@ -1,6 +1,5 @@
 #`kepler_procedures`
 This project was an exercise for our graduate class in scientific computing.
-Here is a [link to our presentation](https://docs.google.com/presentation/d/1JA7amOs9jUSS1sviu2E3LiKAmCTDrXjJgWz_Xogk7iE/edit?usp=sharing "presentation on this project").
 We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.
 We implemented a detrending routine for Kepler data.
 Detrending removes systematic and stellar variation and allows for transits to be observed without other signals.
@@ -59,17 +58,13 @@ The file <code>koi_list.csv</code> contains a list of KOI objects, each object i
 
 The retrieved data for a KOI object from MAST will be saved to an individual `.csv` file in `lightcurves_untrended` and `lightcurves_detrended/`; which contain the _untrended_, and _detrended data_, respectfully. 
 
-The _untrended data_ contains the following data columns; **time, untrended_flux, flux_error**. Do not use the **flux_error**, it needs to be fixed.
+The _untrended data_ contains the following data columns (_do not use the **flux_error**, it needs to be fixed_):
 
-The _detrended data_ contains the following data columns; **time, detrended_flux, untrended_flux, flux_error**. Do not use the **flux_error**, it needs to be fixed.
+**time, untrended_flux, flux_error**. 
 
+The _detrended data_ contains the following data columns (_o not use the **flux_error**, it needs to be fixed_):
 
-
-
-
-
-
-
+**time, detrended_flux, untrended_flux, flux_error**. 
 
 
 
