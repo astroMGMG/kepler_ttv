@@ -75,7 +75,7 @@ will benchmark the serial algorithm.
 
 We show the speedups from these kinds of runs on the Penn State RCC in one of the figures above.
 
-###Directory structure
+#Directory structure
 In this directory, the `kepler_procedures/`
 
 - `benchmarking/` - Benchmarking files. 
@@ -145,13 +145,9 @@ And you are all set!
 More documentation here: http://dan.iel.fm/kplr/ 
 
 ##4 - The `Optim` package
-
-**To install, you do that within Julia:**
+**To install, within Julia issue the following:**
 
 > Pkg.add("Optim")
 
 > Pkg.update()
 
-Then within a `.jl` file just include in the beginning of the file:
-
->using Optim;
