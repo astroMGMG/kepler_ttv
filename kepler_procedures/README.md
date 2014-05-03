@@ -11,7 +11,7 @@ These `kepler_procedures` make use of several other packages.
 #An Overview of the Packages used in this Project
 ##The `kplr` package
 The `kplr` package will provide the greatest functionality with the most ease.
-This is a python package but can be used within Julia via the package <code>pycall</code>.
+This is a python package but can be used within Julia via the package <code>PyCall</code>.
 
 ###Installation instructions
 Either:
