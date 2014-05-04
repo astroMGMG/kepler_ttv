@@ -7,11 +7,13 @@ Here is a [link](https://docs.google.com/presentation/d/1JA7amOs9jUSS1sviu2E3LiK
 
 Here we have a plot showing the result of detrending.
 ![alt text](detrend_vs_untrend.png "The detrended data vs. the trended data")
+
 Notice that the transits are not removed by this process.
 Better detrending can be achieved by using a higher order model (currently we use a cubic).
 
 Here we present the performance of parallelization.
 ![alt text](speedup_rcc.png "The speedup of the parallel code over the serial code")
+
 These results were obtained by using the LionXJ cluster at Penn. State University.
 We used Julia's `DArray` (distributed arrays) and `@spawnat` functions to implement our parallelization.
 
