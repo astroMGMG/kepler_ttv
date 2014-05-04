@@ -38,7 +38,7 @@ We perform a series of tests (see `run_tests.jl` for more details). It currently
 
 Within Julia, issue the following command:
 
->include("run_tests.jl")
+>julia>include("run_tests.jl")
 
 This should run tests 1, 2, and 3, for the _serial_ algorithm.
 Test 1 will probably print out a long list of _"Exceeded maximum number of iterations"_. 
