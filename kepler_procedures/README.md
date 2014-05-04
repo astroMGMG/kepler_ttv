@@ -3,7 +3,7 @@ This project was an exercise for our graduate class in scientific computing.
 We were interested in taking a serial algorithm and parallelizing it using the Julia programming language.
 We implemented a detrending routine for Kepler data.
 Detrending removes systematic and stellar variation and allows for transits to be observed without other signals.
-Here is a [link](https://docs.google.com/presentation/d/1JA7amOs9jUSS1sviu2E3LiKAmCTDrXjJgWz_Xogk7iE/edit?usp=sharing "Our in class presentation") to the presentation that we gave in class.
+Here is a [link](https://docs.google.com/presentation/d/1JA7amOs9jUSS1sviu2E3LiKAmCTDrXjJgWz_Xogk7iE/edit?usp=sharing "Our in class presentation") to the presentation that we gave in class, which provides descriptions on how the serial & algorithms work.
 
 Here we have a plot showing the result of detrending.
 ![alt text](detrend_vs_untrend.png "The detrended data vs. the trended data")
@@ -40,13 +40,13 @@ Within Julia, issue the following command:
 
 >include("run_tests.jl")
 
-This should run tests 1,2,3 for the serial algorithm.
+This should run tests 1, 2, and 3, for the _serial_ algorithm.
 Test 1 will probably print out a long list of _"Exceeded maximum number of iterations"_. 
 This is produced from the "Optim" package and can safely be ignored.
 
 The file <code>koi_list.csv</code> contains a list of KOI objects, each object in one row, and the function <code>koi_launcher.jl</code> will read this file to retrieve data from the MAST database (if the `dataFlag==get_mast_data`) for each of these objects.
 
-The retrieved data for a KOI object from MAST will be saved to an individual `.csv` file in `lightcurves_untrended` and `lightcurves_detrended/`; which contain the _untrended_, and _detrended data_, respectfully. 
+The retrieved data for a KOI object from MAST will be saved to an individual `.csv` file in `lightcurves_untrended/` and `lightcurves_detrended/`; which contain the _untrended_, and _detrended data_, respectfully. 
 
 The _untrended data_ contains the following data columns (_do not use the **flux_error**, it needs to be fixed_):
 
