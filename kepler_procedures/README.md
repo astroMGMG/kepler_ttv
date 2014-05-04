@@ -44,7 +44,8 @@ This should run tests 1, 2, and 3, for the _serial_ algorithm.
 Test 1 will probably print out a long list of _"Exceeded maximum number of iterations"_. 
 This is produced from the "Optim" package and can safely be ignored.
 
-The file <code>koi_list.csv</code> contains a list of KOI objects, each object in one row, and the function <code>koi_launcher.jl</code> will read this file to retrieve data from the MAST database (if the `dataFlag==get_mast_data`) for each of these objects.
+The file <code>koi_list.csv</code> contains a list of KOI objects, with each object in a row.
+The function <code>koi_launcher.jl</code> will read this file to retrieve data from the MAST database (if the `dataFlag==get_mast_data`) for each of these objects.
 
 The retrieved data for a KOI object from MAST will be saved to an individual `.csv` file in `lightcurves_untrended/` and `lightcurves_detrended/`; which contain the _untrended_, and _detrended data_, respectfully. 
 
@@ -57,29 +58,28 @@ The _detrended data_ contains the following data columns (_o not use the **flux_
 **time, detrended_flux, untrended_flux, flux_error**. 
 
 #Getting Started with the parallel algorithm
-The parallel algorithm is very similar to the serial one (if you want to know more about it, see our google-docs presentation through this link: LINK).
+The parallel algorithm is very similar to the serial one (if you want to know more about it, see our google-docs presentation through this [link](https://docs.google.com/presentation/d/1JA7amOs9jUSS1sviu2E3LiKAmCTDrXjJgWz_Xogk7iE/edit?usp=sharing "Our in class presentation")).
 
 Navigate to the `benchmark_data/` folder - this folder contains many of our benchmarks. 
 There you have the file `par_launcher.jl`. 
-This file initializes, and reads the `koi_list.csv` in _that directory_.
-`par_launcher()`, takes in the number of Julia processes that it should use.
+This file initializes, and reads the `koi_list.csv` in _that directory_ and takes in the number of Julia processes that it should use.
 
-To get quickly started with this you could do the following after navigating to `benchmarking` within Julia:
+To get quickly started with this you could do the following after navigating to `benchmarking/` within Julia:
 
-> include("benchmark_par_P.jl")
+>julia> include("benchmark_par_P.jl")
 
-where P is the number of processors (P = 1,2,3,..,9)
+where P is the number of processes (P = 1,2,3,..,9).
 
 Similarly, doing
 
-> include("benchmark_ser.jl")
+>julia> include("benchmark_ser.jl")
 
 will benchmark the serial algorithm. 
 
-We show the speedups from these kinds of runs on the Penn State RCC in one of the figures above.
+We show the speedup of the parallel algorithm (run on the Penn State RCC) in one of the figures above.
 
 #Directory structure
-In this directory, the `kepler_procedures/`
+In this directory, the `kepler_procedures/` we have the following folders:
 
 - `benchmarking/` - Benchmarking files. 
 
@@ -90,10 +90,10 @@ In this directory, the `kepler_procedures/`
 - `old_notebooks/` - Possibly depricated ipython notebooks that were used for development.
 
 
-#An Overview of the Packages used in this Project
+#An Overview of the Packages Required by this Project
 ##1 - The `kplr` package
-The `kplr` package will provide the greatest functionality with the most ease.
-This is a python package but can be used within Julia via the package `PyCall`.
+The `kplr` package will provide tools to access the Kepler lightcurve data from MAST.
+This is a Python package but can be used within Julia via the package `PyCall` (see below).
 
 ####`kplr` Installation instructions
 Either:
@@ -110,11 +110,11 @@ Or:
 ##2 - The `PyCall` package
 You will need to install <code>PyCall as well</code>
 
-**You do that within Julia:**
+Within Julia:
 
-> Pkg.add("PyCall")
+>julia> Pkg.add("PyCall")
 
-> Pkg.update()
+>julia> Pkg.update()
 
 ####Notes for using PyCall in Julia
 The biggest diffence from Python is that object attributes/members are accessed with omyObject[:attribute] rather than myObject.attribute, and you use get(myObject, key) rather than myObject[key].
@@ -150,7 +150,7 @@ More documentation here: http://dan.iel.fm/kplr/
 ##4 - The `Optim` package
 **To install, within Julia issue the following:**
 
-> Pkg.add("Optim")
+>julia> Pkg.add("Optim")
 
-> Pkg.update()
+>julia> Pkg.update()
 
